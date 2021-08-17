@@ -17,30 +17,39 @@ class auto_label(QMainWindow):
 
         self.ui.lineEdit_name.setValidator(QIntValidator(0,100000000,self))
         self.ui.lineEdit_frame.setValidator(QIntValidator(0,100000000,self))
-
+        self.ui.lineEdit_classId.setValidator(QIntValidator(0,100000000,self))
         self.ui.pushButton_loadVideo.clicked.connect(self.load_video)
         self.ui.pushButton_start.clicked.connect(self.start)
+        
 
     def load_video(self):
         self.fileName = QFileDialog.getOpenFileName()[0]
         self.ui.pushButton_loadVideo.setText(self.fileName)
-
+        
     def start(self):
 
         initBB = None
 
         vs = cv2.VideoCapture(self.fileName)
+        
+        if self.ui.lineEdit_classname.text() == '':
+            class_name = 'label'
+        else:    
+            class_name = self.ui.lineEdit_classname.text()
 
-        photo_path = "30_limit"
+        
+        
+
+        photo_path = class_name
         photo_dir = Path(photo_path)
         photo_dir.mkdir(parents=True, exist_ok=True)
 
-        class_name = self.ui.lineEdit_classname.text()
+        
         classes = os.path.join(photo_dir,"classes.txt")
         with open(classes, 'w') as f:
             f.write(class_name)
 
-        def save_img_txt(image, box, count,H,W):
+        def save_img_txt(image, box, count,H,W,class_id):
 
             image_name = f'img{count}'
             cv2.imwrite(os.path.join(photo_dir, image_name + ".jpg"), image)
@@ -57,8 +66,8 @@ class auto_label(QMainWindow):
             y_center = ((y1+(((y1+h1)-y1)/2)))/height
             w = w1/width
             h = h1/height
-
-            yolo_data = [[6, x_center, y_center, w, h]]
+            
+            yolo_data = [[class_id, x_center, y_center, w, h]]
 
             file_path = os.path.join(photo_dir, image_name + ".txt")
 
@@ -79,6 +88,11 @@ class auto_label(QMainWindow):
             per_frame = int(self.ui.lineEdit_frame.text())
         except:
             per_frame =1
+
+        try:
+            class_id = int(self.ui.lineEdit_classId.text())
+        except:
+           class_id =0 
 
         saved_image = 0
         new_H = 1520
@@ -106,7 +120,7 @@ class auto_label(QMainWindow):
                     if frame_count%per_frame == 0:
                         count += 1
                         saved_image +=1
-                        save_img_txt(image, box, count,H,W)
+                        save_img_txt(image, box, count,H,W,class_id)
 
                 info = [
                     ("Success", "Yes" if success else "No"),
