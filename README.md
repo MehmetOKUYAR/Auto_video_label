@@ -45,5 +45,20 @@ For example: *img1.jpg* and *img1.txt*
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
 ## You can see how the program works in the gif below.
+
 ![into gif](https://github.com/MehmetOKUYAR/auto_label/blob/master/images/intro_fast.gif)
+
+## Outputs
+- **A folder is created according to the class name you entered.**
+
+![Alt text](https://github.com/MehmetOKUYAR/auto_label/blob/master/images/default_label.jpg?raw=true "saved folder")
+
+- **Labels and images are saved according to the beginning of the name you enter**
+
+![Alt text](https://github.com/MehmetOKUYAR/auto_label/blob/master/images/deafult_name.jpg?raw=true "name images")
+
+- **Labels are saved in Yolo format.**
+
+![Alt text](https://github.com/MehmetOKUYAR/auto_label/blob/master/images/example_txt.jpg?raw=true "sexample_txt")
