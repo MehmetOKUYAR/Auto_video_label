@@ -5,6 +5,8 @@ However, data preparation is a very laborious and time-consuming process. That's
 By using image processing techniques, it can track an object of your choice to a certain extent and saves the image and .txt file to the folder during tracking.
 Currently, it only works for one class and you can only tag one object.
 
+**Note:** it does not work very stable in videos with multivariate background
+
 ### You can download the application using this link
 [Download - auto_video_labeling.exe](https://drive.google.com/file/d/1t0bHjMo3m41nOevacauQEcUu33D3r9aU/view?usp=sharing) 
 
