@@ -156,15 +156,15 @@ class auto_label(QMainWindow):
                     except:
                         pass
 
-                elif key == ord("a") :
+                elif key == ord("e") :
                     new_H += 50
-                elif key == ord("z") :
+                elif key == ord("w") :
                     new_H -= 50
 
 
-                elif key == ord("w") :
+                elif key == ord("z") :
                     new_W += 50
-                elif key == ord("e") :
+                elif key == ord("a") :
                     new_W -= 50
 
                     
