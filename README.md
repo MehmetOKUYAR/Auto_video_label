@@ -13,6 +13,9 @@ Currently, it only works for one class and you can only tag one object.
 ### 1. Open the application
 ![Alt text](https://github.com/MehmetOKUYAR/auto_label/blob/master/images/app.jpg?raw=true "App ico")
 
+**You can also run it like this** `python main.py`
+
+
 ### 2. Fill in the relevant fields. If you leave it blank, the default values will be accepted.
 ![Alt text](https://github.com/MehmetOKUYAR/auto_label/blob/master/images/main_window.jpg?raw=true "main window")
 
