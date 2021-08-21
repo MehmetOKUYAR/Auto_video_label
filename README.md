@@ -1,0 +1,49 @@
+# Auto Video Labeling
+
+Data is a huge factor in deep learning algorithms. The larger our data size, the better our model can generalize and learn.
+However, data preparation is a very laborious and time-consuming process. That's why I wanted to develop an application that I thought would make this stage easier.
+By using image processing techniques, it can track an object of your choice to a certain extent and saves the image and .txt file to the folder during tracking.
+Currently, it only works for one class and you can only tag one object.
+
+### 1. Open the application
+![Alt text](https://github.com/MehmetOKUYAR/auto_label/blob/master/images/app.jpg?raw=true "App ico")
+
+### 2. Fill in the relevant fields. If you leave it blank, the default values will be accepted.
+![Alt text](https://github.com/MehmetOKUYAR/auto_label/blob/master/images/main_window.jpg?raw=true "main window")
+
+**Load video path :** Specify the video path you want to label. If you leave it blank, your camera will open.
+
+**Name start :** According to the entered number value, it saves the image and txt files by counting from that number. 
+For example: *img1.jpg* and *img1.txt*
+
+**Save per frame:** Saved to one file per frame based on the value entered
+
+**Class Name :** Specifies the folder name and label name to be saved. **Note**: It cannot contain Turkish characters.
+
+**Class Id :** label id must be entered
+
+
+
+
+## Hotkeys
+~~~~~~~
++--------------------+----------------------+
+| s           | Create a rect box           |
++--------------------+----------------------+
+| c           | Cancel selection roi        |
++--------------------+----------------------+
+| w           | reduces the window width    |
++--------------------+----------------------+
+| e           | increases the window width  |
++--------------------+----------------------+
+| a           | reduces window height       |
++--------------------+----------------------+
+| z           | increases window height     |
++--------------------+----------------------+
+| q           | close the video             |
++--------------------+----------------------+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+## You can see how the program works in the gif below.
+![into gif](https://github.com/MehmetOKUYAR/auto_label/blob/master/images/intro_fast.gif)
