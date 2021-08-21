@@ -5,6 +5,9 @@ However, data preparation is a very laborious and time-consuming process. That's
 By using image processing techniques, it can track an object of your choice to a certain extent and saves the image and .txt file to the folder during tracking.
 Currently, it only works for one class and you can only tag one object.
 
+### You can download the application using this link
+[Download - auto_video_labeling.exe](https://drive.google.com/file/d/1t0bHjMo3m41nOevacauQEcUu33D3r9aU/view?usp=sharing) 
+
 ### 1. Open the application
 ![Alt text](https://github.com/MehmetOKUYAR/auto_label/blob/master/images/app.jpg?raw=true "App ico")
 
@@ -30,7 +33,7 @@ For example: *img1.jpg* and *img1.txt*
 +--------------------+----------------------+
 | s           | Create a rect box           |
 +--------------------+----------------------+
-| c           | Cancel selection roi        |
+| c           | Cancel selection rect box   |
 +--------------------+----------------------+
 | w           | reduces the window width    |
 +--------------------+----------------------+
