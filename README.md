@@ -3,7 +3,7 @@
 Data is a huge factor in deep learning algorithms. The larger our data size, the better our model can generalize and learn.
 However, data preparation is a very laborious and time-consuming process. That's why I wanted to develop an application that I thought would make this stage easier.
 By using image processing techniques, it can track an object of your choice to a certain extent and saves the image and .txt file to the folder during tracking.
-Currently, it only works for one class and you can only tag one object.
+**Currently, it only works for one class and you can only label one object.**
 
 **Note:** it does not work very stable in videos with multivariate background
 
