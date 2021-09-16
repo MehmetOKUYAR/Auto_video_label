@@ -72,6 +72,8 @@ For example: *img1.jpg* and *img1.txt*
 ![Alt text](https://github.com/MehmetOKUYAR/auto_label/blob/master/images/example_txt.jpg?raw=true "sexample_txt")
 
 ## Results
+
+This function I wrote performs the image and txt saving process.you can also use this function on a model you have trained before. If your model works well enough, it will easily detect the images and record the labels. You can edit the recorded data and train with your new data quickly.
 ~~~~~~~
         def save_img_txt(image, box, count,H,W,class_id):
 
