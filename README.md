@@ -70,3 +70,36 @@ For example: *img1.jpg* and *img1.txt*
 - **Labels are saved in Yolo format.**
 
 ![Alt text](https://github.com/MehmetOKUYAR/auto_label/blob/master/images/example_txt.jpg?raw=true "sexample_txt")
+
+## Results
+~~~~~~~
+        def save_img_txt(image, box, count,H,W,class_id):
+
+            image_name = f'img{count}'
+            cv2.imwrite(os.path.join(photo_dir, image_name + ".jpg"), image)
+
+            height, width = image.shape[:2]
+
+            (x1, y1, w1, h1) = [int(v) for v in box]
+
+            x1 = (width*x1)/W
+            y1 = (height*y1)/H
+            w1 = (width*w1)/W
+            h1 = (height*h1)/H
+            x_center = ((x1+(((x1+w1)-x1)/2)))/width
+            y_center = ((y1+(((y1+h1)-y1)/2)))/height
+            w = w1/width
+            h = h1/height
+            
+            yolo_data = [[class_id, x_center, y_center, w, h]]
+
+            file_path = os.path.join(photo_dir, image_name + ".txt")
+
+            with open(file_path, 'w') as f:
+                np.savetxt(
+                    f,
+                    yolo_data,
+                    fmt=["%d", "%f", "%f", "%f", "%f"]
+                )
+~~~~~~~~~~~~~~~~~~~~~~~~~                
+                
