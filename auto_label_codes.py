@@ -7,6 +7,8 @@ import os
 from pathlib import Path
 import numpy as np
 import sys
+from datetime import datetime
+import random
 
 
 class auto_label(QMainWindow):
@@ -16,7 +18,7 @@ class auto_label(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
-        self.ui.lineEdit_name.setValidator(QIntValidator(0,100000000,self))
+        #self.ui.lineEdit_name.setValidator(QIntValidator(0,100000000,self))
         self.ui.lineEdit_frame.setValidator(QIntValidator(0,100000000,self))
         self.ui.lineEdit_classId.setValidator(QIntValidator(0,100000000,self))
         self.ui.pushButton_loadVideo.clicked.connect(self.load_video)
@@ -30,12 +32,9 @@ class auto_label(QMainWindow):
     def start(self):
 
         initBB = None
-        
-     
+
         vs = cv2.VideoCapture(self.fileName)
 
-
-        
         if self.ui.lineEdit_classname.text() == '':
             class_name = 'label'
         else:    
@@ -53,9 +52,9 @@ class auto_label(QMainWindow):
         with open(classes, 'w') as f:
             f.write(class_name)
 
-        def save_img_txt(image, box, count,H,W,class_id):
-
-            image_name = f'img{count}'
+        def save_img_txt(image, box,H,W,class_id,name):
+            ran_value = random.randrange(1,1000)
+            image_name = f'{name}{ran_value}_' + datetime.now().strftime("%d.%m.%Y_%H.%M.%S") 
             cv2.imwrite(os.path.join(photo_dir, image_name + ".jpg"), image)
 
             height, width = image.shape[:2]
@@ -82,12 +81,10 @@ class auto_label(QMainWindow):
                     fmt=["%d", "%f", "%f", "%f", "%f"]
                 )
             
-        try :
-            count = int(self.ui.lineEdit_name.text())
-        except :
-            count = 0
-
+     
+        count = 0
         frame_count = 0
+        
         try:
             per_frame = int(self.ui.lineEdit_frame.text())
         except:
@@ -131,7 +128,7 @@ class auto_label(QMainWindow):
                         if frame_count%per_frame == 0:
                             count += 1
                             saved_image +=1
-                            save_img_txt(image, box, count,H,W,class_id)
+                            save_img_txt(image, box,H,W,class_id,class_name)
 
                     info = [
                         ("Success", "Yes" if success else "No"),
