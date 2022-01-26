@@ -21,8 +21,7 @@ By using image processing techniques, it can track an object of your choice to a
 
 **Load video path :** Specify the video path you want to label. If you leave it blank, your camera will open.
 
-**Name start :** According to the entered number value, it saves the image and txt files by counting from that number. 
-For example: *img1.jpg* and *img1.txt*
+
 
 **Save per frame:** Saved to one file per frame based on the value entered
 
