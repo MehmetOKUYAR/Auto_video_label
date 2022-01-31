@@ -96,13 +96,13 @@ class auto_label(QMainWindow):
            class_id =0 
 
         saved_image = 0
-        new_H = 1520
-        new_W = 880
         if not vs.isOpened():
             QMessageBox.warning(self,'Warning Message',' The video could not be opened. Please check the file type ! ')
             self.load_video()
             
-        else:    
+        else:   
+            cv2.namedWindow('Frame',cv2.WINDOW_NORMAL)
+            cv2.resizeWindow('Frame',800,800) 
             while True:
                 ret,frame = vs.read()
                 
@@ -112,7 +112,6 @@ class auto_label(QMainWindow):
                 frame_count +=1
                 image = frame.copy()
                 
-                frame = cv2.resize(frame,(new_H,new_W))
                 (H, W) = frame.shape[:2]
                 
                 
@@ -153,16 +152,6 @@ class auto_label(QMainWindow):
                     except:
                         pass
 
-                elif key == ord("e") :
-                    new_H += 50
-                elif key == ord("w") :
-                    new_H -= 50
-
-
-                elif key == ord("z") :
-                    new_W += 50
-                elif key == ord("a") :
-                    new_W -= 50
 
                     
                     # if the `q` key was pressed, break from the loop
