@@ -45,13 +45,7 @@ By using image processing techniques, it can track an object of your choice to a
 +--------------------+----------------------+
 | c           | Cancel selection rect box   |
 +--------------------+----------------------+
-| w           | reduces the window width    |
-+--------------------+----------------------+
-| e           | increases the window width  |
-+--------------------+----------------------+
-| a           | reduces window height       |
-+--------------------+----------------------+
-| z           | increases window height     |
+| z           | cancel tracking operation   |
 +--------------------+----------------------+
 | q           | close the video             |
 +--------------------+----------------------+
