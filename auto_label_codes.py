@@ -151,9 +151,11 @@ class auto_label(QMainWindow):
                         tracker.init(frame, initBB)
                     except:
                         pass
+                
+                # if the `z` key was pressed, cancel the tracking operation
+                elif key == ord("z") :
+                    initBB = None
 
-
-                    
                     # if the `q` key was pressed, break from the loop
                 elif key == ord("q"):
                     break
