@@ -19,7 +19,7 @@ By using image processing techniques, it can track an object of your choice to a
 
 **requirements --> opencv-contrib-python==4.2.0.34**
 
-**You should run it like this** `python3 auto_label.py --video video.mp4 --className label --perFrame 5 --classId 0`
+**You should run it like this** `python3 auto_label.py --video video.mp4 --className label --perFrame 1 --classId 0`
 
 
 ### 2. Fill in the relevant fields. If you leave it blank, the default values will be accepted.
