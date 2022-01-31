@@ -8,10 +8,10 @@ from datetime import datetime
 import random
 import argparse
 
-# requirements
-# opencv-contrib-python==4.2.0.34
+# requirements for ubuntu :
+#pip3 install opencv-contrib-python==4.2.0.34
 
-# Run
+# Run like this:
 # python3 auto_label.py --video video.mp4 --classnName label --perFrame 5 --classId 0
 
 # construct the argument parser and parse the arguments
@@ -21,16 +21,16 @@ ap.add_argument("-v", "--video", type=str,
 ap.add_argument("-n", "--className", type=str, default="label",
 	help="Enter your class label name")
 ap.add_argument("-p", "--perFrame", type=int, default=1,
-	help="Enter your class label name")
+	help="save per frame")
 ap.add_argument("-i", "--classId", type=int, default=0,
-	help="Enter your class label name")
+	help="Enter your class label id")
 args = vars(ap.parse_args())
 
 
-fileName = args["video"]
-class_name = args["className"]
-per_frame = args["perFrame"]
-class_id = args["classId"]
+fileName = args["video"] # video filename
+class_name = args["className"] # your class label name
+per_frame = args["perFrame"] # save per frame
+class_id = args["classId"] # your class label id
 
 count = 0
 frame_count = 0
@@ -126,9 +126,7 @@ else:
                 cv2.putText(frame, text, (10, H - ((i * 20) + 20)),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 2)
             
-        
-        
-        
+    
         cv2.imshow("Frame", frame)
         key = cv2.waitKey(1) & 0xFF
 
@@ -138,14 +136,14 @@ else:
             initBB = cv2.selectROI(
                 "Frame", frame, fromCenter=False, showCrosshair=True)
             try:
-                
                 tracker.init(frame, initBB)
             except:
                 pass
-
+        
+        # if the `z` key was pressed, cancel the tracking operation
         elif key == ord("z") :
             initBB = None
- 
+
             # if the `q` key was pressed, break from the loop
         elif key == ord("q"):
             break
