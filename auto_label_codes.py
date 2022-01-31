@@ -152,7 +152,7 @@ class auto_label(QMainWindow):
                     except:
                         pass
                 
-                # if the `z` key was pressed, cancel the tracking operation
+                # if the `z` key was pressed, cancel the tracking operation.
                 elif key == ord("z") :
                     initBB = None
 
